@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_margin="55dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VOLUNTEER REGISTRATION FORM"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/et_mobile"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Mobile No."
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:id="@+id/et_qualification"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Qualification"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:id="@+id/et_location"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Location"
+            android:layout_marginBottom="10dp"/>
+        <EditText
+            android:id="@+id/et_language"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Language"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"/>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:id="@+id/rb_gender">
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="50"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/rfemale"
+                android:checked="false"
+                />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_weight="50"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:id="@+id/rcredit"
+                android:checked="false" />
+
+        </RadioGroup>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
