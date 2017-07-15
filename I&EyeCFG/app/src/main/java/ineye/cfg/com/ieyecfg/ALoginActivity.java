@@ -7,11 +7,10 @@ import android.support.v7.app.AppCompatActivity;
  * Created by swapn on 16-07-2017.
  */
 
-public class VolunteerActivity extends AppCompatActivity {
-
+public class ALoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volunteer);
+        setContentView(R.layout.activity_alogin);
 
 
 

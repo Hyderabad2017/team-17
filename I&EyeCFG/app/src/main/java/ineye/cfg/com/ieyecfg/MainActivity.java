@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 /**
- * Created by swapn on 16-07-2017.
+ * Created by swapna on 16-07-2017.
  */
 
 public class MainActivity extends AppCompatActivity {
