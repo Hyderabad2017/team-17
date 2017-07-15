@@ -22,7 +22,7 @@ public class ALoginActivity extends AppCompatActivity {
         alogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ALoginActivity.this,StudentActivity.class);
+                Intent intent = new Intent(ALoginActivity.this,AdminActivity.class);
                 startActivity(intent);
             }
         });

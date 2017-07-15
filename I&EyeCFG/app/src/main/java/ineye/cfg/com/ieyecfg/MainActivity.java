@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vreg);
+        setContentView(R.layout.activity_main);
 
         stubtn=(Button)findViewById(R.id.stud_btn);
         admbtn=(Button)findViewById(R.id.adm_btn);
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         stubtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,SSignUpActivity.class);
+                Intent intent = new Intent(MainActivity.this,StudentActivity.class);
                 startActivity(intent);
             }
         });
