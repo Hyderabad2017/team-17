@@ -17,8 +17,8 @@ public class VLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vlogin);
 
-        signupbtn=(Button) findViewById(R.id.signupbtn);
-        loginbtn=(Button) findViewById(R.id.loginbtn);
+        signupbtn=(Button) findViewById(R.id.vsignupbtn);
+        loginbtn=(Button) findViewById(R.id.vloginbtn);
 
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
