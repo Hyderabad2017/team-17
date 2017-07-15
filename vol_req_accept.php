@@ -10,10 +10,10 @@ $req_id=22;*/
 $sql1="SELECT req_status,primarys,secondary,backup from student where req_id='$req_id'";
 $res1=mysqli_query($dbconnected,$sql1);
 if($res1)
-{echo "hi";
+{#echo "hi";
   while($row = mysqli_fetch_assoc($res1))
   {
-    echo "hi1";
+    #echo "hi1";
     $req_status=$row['req_status'];
     $primarys=$row['primarys'];
     $secondary=$row['secondary'];
@@ -21,7 +21,7 @@ if($res1)
   }
   if($req_status=="pending")
   {
-    echo "hi2";
+    #echo "hi2";
     $req_status="active";
   }
   if($primarys==NULL)
