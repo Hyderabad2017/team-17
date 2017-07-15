@@ -98,8 +98,8 @@ public class VRegActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(MainActivity.this, "Check your internet connection and proceed", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(VRegActivity.this, "Check your internet connection and proceed", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
 
@@ -114,7 +114,7 @@ public class VRegActivity extends AppCompatActivity {
                 params.put("city", loc);
                 params.put("language", lang);
                 params.put("qualification", qual);
-                params.put("vol_pswd", qual);
+                params.put("vol_pswd", pass);
 
 
                 return params;

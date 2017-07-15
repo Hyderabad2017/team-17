@@ -44,6 +44,7 @@ public class StudentActivity extends AppCompatActivity {
         e_slang =(EditText) findViewById(R.id.et_slang);
         e_semail =(EditText) findViewById(R.id.et_semail);
 
+
     }
 
     public void createRequest(View view) {
@@ -53,9 +54,9 @@ public class StudentActivity extends AppCompatActivity {
         sexam = e_sexam.getText().toString();
         smobile = e_smobile.getText().toString();
         sexamdate = e_sexamdate.getText().toString();
-        sloc = e_sloc.getText().toString();
+        sloc = "not yet determined";
         slang = e_slang.getText().toString();
-        e_sname =(EditText) findViewById(R.id.et_sname);
+        semail=e_semail.getText().toString();
         sgender="female";
 
         prefManager = new PrefManager(this);
@@ -115,7 +116,7 @@ public class StudentActivity extends AppCompatActivity {
     }
 
     public void sendSMSToVol(){
-        
+
     }
 
 
