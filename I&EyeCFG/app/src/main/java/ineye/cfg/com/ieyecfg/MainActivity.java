@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         volbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,VRegActivity.class);
+                Intent intent = new Intent(MainActivity.this,VLoginActivity.class);
                 startActivity(intent);
             }
         });
