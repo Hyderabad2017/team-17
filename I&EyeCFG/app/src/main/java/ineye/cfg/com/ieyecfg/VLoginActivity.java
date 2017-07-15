@@ -27,7 +27,7 @@ public class VLoginActivity extends AppCompatActivity {
     EditText e_vmob,e_vpass;
     String vmob,vpass;
     Button signupbtn, loginbtn;
-    public static String url_reg="http://192.168.43.96/cfg_connection/stu_request.php";
+    public static String url_reg="http://192.168.43.96/cfg_connection/login.php";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,13 +46,6 @@ public class VLoginActivity extends AppCompatActivity {
             }
         });
 
-        loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(VLoginActivity.this,VolunteerActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
 
@@ -76,7 +69,9 @@ public class VLoginActivity extends AppCompatActivity {
                     String value = jObj.getString("uid");
 
                     if (value.equalsIgnoreCase("success")) {
-                        Toast.makeText(VLoginActivity.this, "Request Created", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(VLoginActivity.this,VolunteerActivity.class);
+                        startActivity(intent);
+                        Toast.makeText(VLoginActivity.this, "login successful", Toast.LENGTH_SHORT).show();
 
                     }
                     else
