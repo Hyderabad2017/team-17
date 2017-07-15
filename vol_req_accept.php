@@ -13,7 +13,6 @@ if($res1)
 {echo "hi";
   while($row = mysqli_fetch_assoc($res1))
   {
-    echo "hi1";
     $req_status=$row['req_status'];
     $primarys=$row['primarys'];
     $secondary=$row['secondary'];
@@ -21,7 +20,6 @@ if($res1)
   }
   if($req_status=="pending")
   {
-    echo "hi2";
     $req_status="active";
   }
   if($primarys==NULL)
