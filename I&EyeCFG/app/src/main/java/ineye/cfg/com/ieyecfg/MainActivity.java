@@ -1,43 +1,57 @@
 package ineye.cfg.com.ieyecfg;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
-import android.text.TextUtils;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.RadioGroup;
 
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
+/**
+ * Created by swapn on 16-07-2017.
+ */
 
 public class MainActivity extends AppCompatActivity {
-    String name,mail,phone;
-    EditText m_name,m_mail,m_phone;
-    private PrefManager prefManager;
-    public static String url_reg="http://10.49.183.34/cfg_connection/vol_register.php";
+    Button stubtn,admbtn,volbtn;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vhome);
+        setContentView(R.layout.activity_vreg);
+
+        stubtn=(Button)findViewById(R.id.stud_btn);
+        admbtn=(Button)findViewById(R.id.adm_btn);
+        volbtn=(Button)findViewById(R.id.vol_btn);
+
+
+
+        stubtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,StudentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        admbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,AdminActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        volbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,VRegActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 
     }
-
-
-
-
 
 }

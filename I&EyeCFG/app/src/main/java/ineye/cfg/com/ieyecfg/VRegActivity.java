@@ -1,6 +1,7 @@
 package ineye.cfg.com.ieyecfg;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
@@ -79,7 +80,8 @@ public class VRegActivity extends AppCompatActivity {
                     String value = jObj.getString("uid");
 
                     if (value.equalsIgnoreCase("success")) {
-                        Toast.makeText(VRegActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(VRegActivity.this,VolunteerActivity.class);
+                        startActivity(intent);
                     }
                     else
                         Toast.makeText(VRegActivity.this, "Unexpected Error", Toast.LENGTH_SHORT).show();
