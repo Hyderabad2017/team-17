@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,9 +26,11 @@ import java.util.Map;
  */
 
 public class VRegActivity extends AppCompatActivity {
-    EditText e_name,e_email,e_mobile,e_qual,e_loc,e_lang;
-    String name,email,mobile,qual,loc,lang;
+    private EditText e_name,e_email,e_mobile,e_qual,e_loc,e_lang;
+    private String name,email,mobile,qual,loc,lang,gender;
     private PrefManager prefManager;
+    private RadioGroup r_gender;
+    private RadioButton radiogender;
     public static String url_reg="http://10.49.183.34/cfg_connection/vol_register.php";
 
 
@@ -40,6 +44,13 @@ public class VRegActivity extends AppCompatActivity {
         e_qual=(EditText)findViewById(R.id.et_qualification);
         e_loc=(EditText)findViewById(R.id.et_location);
         e_lang=(EditText)findViewById(R.id.et_language);
+
+        r_gender=(RadioGroup)findViewById(R.id.rb_gender);
+
+        int selectedId=r_gender.getCheckedRadioButtonId();
+        radiogender=(RadioButton)findViewById(selectedId);
+
+
     }
 
     public void goToRegMain(View view) {
@@ -51,6 +62,7 @@ public class VRegActivity extends AppCompatActivity {
         qual = e_qual.getText().toString();
         loc = e_loc.getText().toString();
         lang = e_lang.getText().toString();
+        gender=radiogender.getText().toString();
 
         prefManager = new PrefManager(this);
 
@@ -88,11 +100,12 @@ public class VRegActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("vol_name", name);
-                params.put("mail", email);
+                params.put("vol_pswd", email);
+                params.put("vol_gender", gender);
                 params.put("mobile", mobile);
-                params.put("phone", qual);
-                params.put("phone", loc);
-                params.put("phone", lang);
+                params.put("city", loc);
+                params.put("language", lang);
+                params.put("qualification", qual);
 
 
                 return params;
