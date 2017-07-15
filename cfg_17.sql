@@ -47,7 +47,7 @@ CREATE TABLE `student` (
   `stu_date_exam` date NOT NULL,
   `stu_location` varchar(50) NOT NULL,
   `stu_gender` varchar(2) NOT NULL,
-  `stu_primary` int(10) NOT NULL,
+	  `stu_primary` int(10) NOT NULL,
   `stu_secondary` int(10) NOT NULL,
   `stu_backup` int(10) NOT NULL,
   `stu_mobile` int(10) NOT NULL,
@@ -65,6 +65,7 @@ CREATE TABLE `student` (
 CREATE TABLE `volunteer` (
   `vol_id` int(20) NOT NULL,
   `vol_name` varchar(30) NOT NULL,
+  `vol_pswd` varchar(60) NOT NULL,
   `vol_gender` varchar(2) NOT NULL,
   `vol_location` varchar(50) NOT NULL,
   `vol_status` varchar(20) NOT NULL,
