@@ -2,20 +2,14 @@
 include "credentials.php";
 
 
-      /*$vol_name=$_POST["vol_name"];
+      $vol_name=$_POST["vol_name"];
       $vol_pswd=$_POST["vol_pswd"];
       $vol_gender=$_POST["vol_gender"];
       $vol_mobile=$_POST["mobile"];
       $vol_city=$_POST["city"];
       $vol_email=$_POST["email"];
-      $vol_lang=$_POST["language"];*/
-      $vol_name="dasarada";
-      $vol_pswd="dasarada";
-      $vol_gender="m";
-      $vol_mobile=9908535;
-      $vol_city="hyderabad";
-      $vol_email="dachi8958@gmail.com";
-      $vol_lang="telugu";
+      $vol_lang=$_POST["language"];
+      
       $sql1="SELECT * from volunteer where vol_mobile='$vol_mobile';";
       $res=mysqli_query($dbconnected,$sql1);
       if(mysqli_num_rows($res)>0)

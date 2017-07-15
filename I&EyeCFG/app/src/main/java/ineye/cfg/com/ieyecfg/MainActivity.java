@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     String name,mail,phone;
     EditText m_name,m_mail,m_phone;
     private PrefManager prefManager;
-    public static String url_reg="http://minimark.in/Android/register.php";
+    public static String url_reg="http://10.49.183.34/cfg_connection/vol_register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

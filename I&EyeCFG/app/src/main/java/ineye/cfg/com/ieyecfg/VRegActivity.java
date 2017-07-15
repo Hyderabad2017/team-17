@@ -27,7 +27,7 @@ public class VRegActivity extends AppCompatActivity {
     EditText e_name,e_email,e_mobile,e_qual,e_loc,e_lang;
     String name,email,mobile,qual,loc,lang;
     private PrefManager prefManager;
-    public static String url_reg="http://minimark.in/Android/register.php";
+    public static String url_reg="http://10.49.183.34/cfg_connection/vol_register.php";
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,9 +87,13 @@ public class VRegActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("name", name);
-                params.put("mail", mail);
-                params.put("phone", phone);
+                params.put("vol_name", name);
+                params.put("mail", email);
+                params.put("mobile", mobile);
+                params.put("phone", qual);
+                params.put("phone", loc);
+                params.put("phone", lang);
+
 
                 return params;
             }
