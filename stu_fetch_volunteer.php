@@ -1,7 +1,7 @@
 <?php
 {include('credentials.php');
 }
-$stu_mobile = $_POST['stu_mobile'];
+$stu_mobile = isset($_POST['stu_mobile']);
 $sql = "SELECT stu_primary,stu_exam,stu_date_exam FROM student WHERE stu_mobile = '$stu_mobile'";
 $result = mysqli_query($dbconnected, $sql);
 while($rows = mysqli_fetch_assoc($result)){
