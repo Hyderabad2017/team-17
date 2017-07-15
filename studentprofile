@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ineye.cfg.com.ieyecfg.StudentProfile">
+
+
+    <EditText
+        android:id="@+id/PhonePrompt"
+        android:layout_width="277dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="phone"
+        tools:layout_editor_absoluteX="52dp"
+        tools:layout_editor_absoluteY="135dp" />
+
+    <Button
+        android:id="@+id/PhoneSearch"
+        android:layout_width="101dp"
+        android:layout_height="54dp"
+        android:text="Search"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="239dp" />
+</android.support.constraint.ConstraintLayout>
