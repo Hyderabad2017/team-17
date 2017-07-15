@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Created by swapn on 16-07-2017.
+ * Created by swapna on 16-07-2017.
  */
 
 public class AdminActivity extends AppCompatActivity {

@@ -11,10 +11,10 @@
         android:layout_margin="60dp">
 
         <EditText
-            android:id="@+id/et_amobile"
+            android:id="@+id/et_aname"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Mobile Number"
+            android:hint="Nme"
             android:layout_marginBottom="10dp"/>
 
         <EditText
