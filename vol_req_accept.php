@@ -7,16 +7,16 @@ $req_id=$_POST['req_id'];
 /*$vol_id=92;
 $req_id=22;*/
 
-$sql1="SELECT req_status,primarys,secondary,backup from student where req_id='$req_id'";
+$sql1="SELECT stu_req_status,stu_primarys,stu_secondary,stu_backup from student where req_id='$req_id'";
 $res1=mysqli_query($dbconnected,$sql1);
 if($res1)
 {echo "hi";
   while($row = mysqli_fetch_assoc($res1))
   {
-    $req_status=$row['req_status'];
-    $primarys=$row['primarys'];
-    $secondary=$row['secondary'];
-    $backup=$row['backup'];
+    $req_status=$row['stu_req_status'];
+    $primarys=$row['stu_primarys'];
+    $secondary=$row['stu_secondary'];
+    $backup=$row['stu_backup'];
   }
   if($req_status=="pending")
   {
@@ -38,7 +38,7 @@ if($res1)
       $list['uid']="full";
       echo json_encode($list);
   }
-  $sql2="UPDATE student SET req_status='$req_status',primarys='$primarys',secondary='$secondary',backup='$backup' where req_id='$req_id'";
+  $sql2="UPDATE student SET stu_req_status='$req_status',stu_primarys='$primarys',stu_secondary='$secondary',stu_backup='$backup' where req_id='$req_id'";
   $res2=mysqli_query($dbconnected,$sql2);
   if($res2==TRUE)
   {
@@ -63,4 +63,5 @@ if($res1)
 }
 else {
   $list['uid']="error";
+  echo json_encode($list);
 }
