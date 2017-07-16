@@ -1,5 +1,6 @@
 package ineye.cfg.com.ieyecfg;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -121,14 +122,7 @@ public class StudentActivity extends AppCompatActivity {
                                 int len = arr.length();
                                 for (int i=0;i<len;i++){
 
-                                    mobilelist.add(arr.getString(i));
-
-                                    StringBuilder string = new StringBuilder();
-                                    for (int i1 = 0; i1 < mobilelist.size(); i1++) {
-
-                                        String a=mobilelist.get(i1);
-                                        sendSMSToVol(a);
-                                    }
+                                   sendSMSToVol(arr.getString(i));
 
 
 
@@ -180,7 +174,11 @@ public class StudentActivity extends AppCompatActivity {
 
     public void sendSMSToVol(String no){
         SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(no, null, "Would you like to be a scribe for Mr.A?", null, null);
+
+
+        Intent intent=new Intent(getApplicationContext(),StudentActivity.class);
+        PendingIntent pi=PendingIntent.getActivity(getApplicationContext(), 0, intent,0);
+        smsManager.sendTextMessage(no, null, "Would you like to be a scribe for Mr.A?", pi, null);
         Toast.makeText(StudentActivity.this, "Message sent to"+no, Toast.LENGTH_SHORT).show();
     }
 
