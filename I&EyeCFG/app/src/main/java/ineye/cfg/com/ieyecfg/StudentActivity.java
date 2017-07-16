@@ -5,10 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,6 +35,7 @@ public class StudentActivity extends AppCompatActivity {
     private RadioGroup r_gender;
     private PrefManager prefManager;
     private RadioButton radiogender;
+    private Spinner s_sexam;
     public static String url_reg="http://192.168.43.96/cfg_connection/stu_request.php";
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +43,42 @@ public class StudentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student);
 
         e_sname =(EditText) findViewById(R.id.et_sname);
-        e_sexam =(EditText) findViewById(R.id.et_sexam);
+
         e_sexamdate =(EditText) findViewById(R.id.et_sexamdate);
         e_smobile =(EditText) findViewById(R.id.et_smobile);
         e_slang =(EditText) findViewById(R.id.et_slang);
         e_semail =(EditText) findViewById(R.id.et_semail);
+
+
+
+        final String[] paths2 = {"Select Exam","10th Exams","CA Exam"};
+
+        s_sexam = (Spinner) findViewById(R.id.s_sexam);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(StudentActivity.this,
+                android.R.layout.simple_spinner_item, paths2);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s_sexam.setAdapter(adapter);
+        s_sexam.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                switch (pos) {
+                    case 0:
+                        // Whatever you want to happen when the first item gets selected
+                        break;
+                    case 1:
+                        sexam=paths2[1];
+                        break;
+                    case 2:
+                        sexam=paths2[2];
+                        break;
+                }
+
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+                        sexam="not known";
+            }
+        });
 
 
     }
@@ -52,7 +87,7 @@ public class StudentActivity extends AppCompatActivity {
 
         String tag_string_req = "req_register";
         sname = e_sname.getText().toString();
-        sexam = e_sexam.getText().toString();
+
         smobile = e_smobile.getText().toString();
         sexamdate = e_sexamdate.getText().toString();
         sloc = "not yet determined";
