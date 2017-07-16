@@ -2,13 +2,13 @@
 include "credentials.php";
 
 
-      $vol_name=isset($_POST["vol_name"]);
-      $vol_pswd=isset($_POST["vol_pswd"]);
-      $vol_gender=isset($_POST["vol_gender"]);
-      $vol_mobile=isset($_POST["mobile"]);
-      $vol_city=isset($_POST["city"]);
-      $vol_email=isset($_POST["email"]);
-      $vol_lang=isset($_POST["language"]);
+      $vol_name=$_POST["vol_name"];
+      $vol_pswd=$_POST["vol_pswd"];
+      $vol_gender=$_POST["vol_gender"];
+      $vol_mobile=$_POST["mobile"];
+      $vol_city=$_POST["city"];
+      $vol_email=$_POST["email"];
+      $vol_lang=$_POST["language"];
       $vol_qualification=isset($_POST["qualification"]);
 
       $sql1="SELECT * from volunteer where vol_mobile='$vol_mobile';";
