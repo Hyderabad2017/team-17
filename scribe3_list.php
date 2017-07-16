@@ -8,8 +8,9 @@ while($row = mysqli_fetch_assoc($result)){
   $stu_primary = $row['stu_primary'];
   $stu_secondary = $row['stu_secondary'];
   $stu_backup = $row['stu_backup'];
-  echo $stu_primary."<br>";
-  echo $stu_secondary."<br>";
-  echo $stu_backup."<br>";
+  $list['stu_primary']="success";
+  $list['stu_secondary']="success";
+  $list['stu_backup']="success";
+  echo json_encode($list);
 }
  ?>
