@@ -124,8 +124,6 @@ public class StudentActivity extends AppCompatActivity {
 
                                    sendSMSToVol(arr.getString(i));
 
-
-
                                 }
                             }
                         }catch (Exception e){
