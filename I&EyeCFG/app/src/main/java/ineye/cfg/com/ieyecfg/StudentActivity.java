@@ -19,14 +19,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by swapn on 16-07-2017.
+ * Created by swapna on 16-07-2017.
  */
 
 public class StudentActivity extends AppCompatActivity {
@@ -109,7 +111,32 @@ public class StudentActivity extends AppCompatActivity {
 
                     if (value.equalsIgnoreCase("success")) {
                         Toast.makeText(StudentActivity.this, "Request Created", Toast.LENGTH_SHORT).show();
+                        try {
+                            ArrayList<String> mobilelist = new ArrayList<String>();
+                            JSONArray arr  = jObj.getJSONArray("mobile_list");
 
+
+
+                            if (arr != null) {
+                                int len = arr.length();
+                                for (int i=0;i<len;i++){
+
+                                    mobilelist.add(arr.get(i).toString());
+
+                                    StringBuilder string = new StringBuilder();
+                                    for (int i1 = 0; i1 < mobilelist.size(); i1++) {
+
+                                        String a=mobilelist.get(i1).toString();
+                                        sendSMSToVol(a);
+                                    }
+
+
+
+                                }
+                            }
+                        }catch (Exception e){
+                        e.printStackTrace();
+                        }
                     }
                     else
                         Toast.makeText(StudentActivity.this, "Unexpected Error", Toast.LENGTH_SHORT).show();
@@ -151,9 +178,10 @@ public class StudentActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
-    public void sendSMSToVol(){
+    public void sendSMSToVol(String no){
         SmsManager smsManager = SmsManager.getDefault();
-        //smsManager.sendTextMessage(String no, null, "", null, null);
+        smsManager.sendTextMessage(no, null, "Would you like to be a scribe for Mr.A?", null, null);
+        Toast.makeText(StudentActivity.this, "Message sent to"+no, Toast.LENGTH_SHORT).show();
     }
 
 
