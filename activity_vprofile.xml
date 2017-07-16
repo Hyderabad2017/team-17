@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ineye.cfg.com.ieyecfg.activity_vhome">
+
+    <Button
+        android:id="@+id/UpcomingButton2"
+        android:layout_width="198dp"
+        android:layout_height="92dp"
+        android:width="250dp"
+        android:text="Upcoming"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp"
+        android:textColor="black"/>
+
+    <Button
+        android:id="@+id/homebutton2"
+        android:layout_width="198dp"
+        android:layout_height="92dp"
+        android:width="225dp"
+        android:text="Home"
+        tools:layout_editor_absoluteX="213dp"
+        tools:layout_editor_absoluteY="2dp" />152dp"
+        tools:layout_editor_absoluteX="16dp" />497dp"
+        tools:layout_editor_absoluteY="7dp" />
+
+    <TextView
+        android:id="@+id/Profileview"
+        android:layout_width="252dp"
+        android:layout_height="95dp"
+        android:width="250dp"
+        android:height="45dp"
+        android:text="PROFILE"
+        android:textSize="40dp"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteY="27dp"
+        tools:layout_editor_absoluteX="381dp" />
+
+</android.support.constraint.ConstraintLayout>
