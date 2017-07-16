@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * Created by swapna on 16-07-2017.
@@ -100,75 +102,82 @@ public class StudentActivity extends AppCompatActivity {
 
         prefManager = new PrefManager(this);
 
-        StringRequest strReq = new StringRequest(Request.Method.POST, url_reg, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Toast.makeText(StudentActivity.this, response, Toast.LENGTH_LONG).show();
+        if (isValidEmail(semail) && isValidMobile(smobile)) {
+            Toast.makeText(this, "Saving Details...!", Toast.LENGTH_SHORT).show();
 
-                try {
-                    JSONObject jObj = new JSONObject(response);
+            StringRequest strReq = new StringRequest(Request.Method.POST, url_reg, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    Toast.makeText(StudentActivity.this, response, Toast.LENGTH_LONG).show();
 
-                    String value = jObj.getString("uid");
+                    try {
+                        JSONObject jObj = new JSONObject(response);
 
-                    if (value.equalsIgnoreCase("success")) {
-                        Toast.makeText(StudentActivity.this, "Request Created", Toast.LENGTH_SHORT).show();
-                        try {
-                            ArrayList<String> mobilelist = new ArrayList<String>();
-                            JSONArray arr  = jObj.getJSONArray("data");
+                        String value = jObj.getString("uid");
+
+                        if (value.equalsIgnoreCase("success")) {
+                            Toast.makeText(StudentActivity.this, "Request Created", Toast.LENGTH_SHORT).show();
+                            try {
+                                ArrayList<String> mobilelist = new ArrayList<String>();
+                                JSONArray arr  = jObj.getJSONArray("data");
 
 
 
-                            if (arr != null) {
-                                int len = arr.length();
-                                for (int i=0;i<len;i++){
+                                if (arr != null) {
+                                    int len = arr.length();
+                                    for (int i=0;i<len;i++){
 
-                                   sendSMSToVol(arr.getString(i));
+                                        sendSMSToVol(arr.getString(i));
 
+                                    }
                                 }
+                            }catch (Exception e){
+                                e.printStackTrace();
                             }
-                        }catch (Exception e){
-                        e.printStackTrace();
                         }
+                        else
+                            Toast.makeText(StudentActivity.this, "Unexpected Error", Toast.LENGTH_SHORT).show();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    else
-                        Toast.makeText(StudentActivity.this, "Unexpected Error", Toast.LENGTH_SHORT).show();
+                    catch(Exception e){
+                        e.printStackTrace();
+                    }
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
+
                 }
-                catch(Exception e){
-                    e.printStackTrace();
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //Toast.makeText(MainActivity.this, "Check your internet connection and proceed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                 }
+            }
+
+            ) {
+                @Override
+                protected Map<String, String> getParams() {
+                    Map<String, String> params = new HashMap<String, String>();
+                    params.put("stu_name", sname);
+                    params.put("stu_exam", sexam);
+                    params.put("exam_date", sexamdate);
+                    params.put("location", sloc);
+                    params.put("stu_gender", sgender);
+                    params.put("stu_mobile", smobile);
+                    params.put("stu_language", slang);
+                    params.put("stu_email", semail);
 
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //Toast.makeText(MainActivity.this, "Check your internet connection and proceed", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-            }
+                    return params;
+                }
+            };
+            AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
         }
 
-        ) {
-            @Override
-            protected Map<String, String> getParams() {
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("stu_name", sname);
-                params.put("stu_exam", sexam);
-                params.put("exam_date", sexamdate);
-                params.put("location", sloc);
-                params.put("stu_gender", sgender);
-                params.put("stu_mobile", smobile);
-                params.put("stu_language", slang);
-                params.put("stu_email", semail);
-
-
-                return params;
-            }
-        };
-        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
+
+
 
     public void sendSMSToVol(String no){
         SmsManager smsManager = SmsManager.getDefault();
@@ -180,5 +189,28 @@ public class StudentActivity extends AppCompatActivity {
         Toast.makeText(StudentActivity.this, "Message sent to"+no, Toast.LENGTH_SHORT).show();
     }
 
+    public final boolean isValidEmail(CharSequence email) {
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            Toast.makeText(this, "Invalid Email", Toast.LENGTH_SHORT).show();
+            return false;
+        } else {
+            return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        }
+    }
 
+    private boolean isValidMobile(String number) {
+        boolean check = false;
+        if (!Pattern.matches("[a-zA-Z]+", number)) {
+
+            if (smobile.length() != 10) {
+                check = false;
+                Toast.makeText(this, "Invalid Number", Toast.LENGTH_SHORT).show();
+            } else {
+                check = true;
+            }
+        } else {
+            check = false;
+        }
+        return check;
+    }
 }
