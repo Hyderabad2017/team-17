@@ -113,7 +113,7 @@ public class StudentActivity extends AppCompatActivity {
                         Toast.makeText(StudentActivity.this, "Request Created", Toast.LENGTH_SHORT).show();
                         try {
                             ArrayList<String> mobilelist = new ArrayList<String>();
-                            JSONArray arr  = jObj.getJSONArray("mobile_list");
+                            JSONArray arr  = jObj.getJSONArray("data");
 
 
 
@@ -121,12 +121,12 @@ public class StudentActivity extends AppCompatActivity {
                                 int len = arr.length();
                                 for (int i=0;i<len;i++){
 
-                                    mobilelist.add(arr.get(i).toString());
+                                    mobilelist.add(arr.getString(i));
 
                                     StringBuilder string = new StringBuilder();
                                     for (int i1 = 0; i1 < mobilelist.size(); i1++) {
 
-                                        String a=mobilelist.get(i1).toString();
+                                        String a=mobilelist.get(i1);
                                         sendSMSToVol(a);
                                     }
 
