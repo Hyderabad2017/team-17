@@ -46,9 +46,10 @@ if($flag==1)
      #echo "hi";
      #echo $row["vol_mobile"];
     $temp=$row["vol_mobile"];
-    $mobile_list[i]=$temp;
+    $mobile_list[$i]=$temp;
     $i++;
    }
+   echo json_encode($mobile_list);
    #echo "hia";
  }
 
